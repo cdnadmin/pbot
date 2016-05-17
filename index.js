@@ -1,3 +1,4 @@
+
 var Botkit = require('botkit');
 
 var controller = Botkit.slackbot();
@@ -22,7 +23,8 @@ controller.hears(["Hey, Professor!", "Hungry?", "just one tho", /^.{0,}professor
 });
 
 var bot = controller.spawn({
-	token:require('./config').token
+	//token:require('./config').token
+  token: process.env.SLACK_TOKEN;
 });
 
 bot.startRTM(function(err, bot, payload) {
